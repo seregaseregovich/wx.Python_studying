@@ -1,6 +1,7 @@
 import wx
 
-# App - класс общего функционала приложения
+# App() - класс общего функционала приложения.
+# Создаем экземпляр app - производим инициализацию приложения
 app = wx.App()
 
 # Frame - класс отдельного окна (их может быть несколько
@@ -31,16 +32,28 @@ app = wx.App()
 # - wx.CAPTION - разрешение полосы с заголовком окна;
 # - wx.CLOSE_BOX - кнопка для закрытия окна;
 # - wx.CLIP_CHILDREN - кнопка для
-frame = wx.Frame(None, title='Helloy', pos=(100, 100),
-                 size=(800, 600), style=wx.MINIMIZE_BOX |
-                                        wx.MAXIMIZE_BOX |
-                                        wx.RESIZE_BORDER |
-                                        wx.SYSTEM_MENU |
-                                        wx.CAPTION |
-                                        wx.CLOSE_BOX |
-                                        wx.CLIP_CHILDREN,
-                 name='AAAAAA')
-# МЕТОДЫ (некоторые):
+
+# С помощью класса Frame() создаем окно (экз.класса - frame).
+frame1 = wx.Frame(None, title='Helloy', pos=(100, 100),
+                  size=(1200, 600), style=wx.MINIMIZE_BOX |
+                                          wx.MAXIMIZE_BOX |
+                                          wx.RESIZE_BORDER |
+                                          wx.SYSTEM_MENU |
+                                          wx.CAPTION |
+                                          wx.CLOSE_BOX |
+                                          wx.CLIP_CHILDREN,
+                  name='AAAAAA')
+
+frame2 = wx.Frame(frame1, title='Helloy', pos=(120, 120),
+                  size=(600, 500), style=wx.MINIMIZE_BOX |
+                                          wx.MAXIMIZE_BOX |
+                                          wx.RESIZE_BORDER |
+                                          wx.SYSTEM_MENU |
+                                          wx.CAPTION |
+                                          wx.CLOSE_BOX |
+                                          wx.CLIP_CHILDREN,
+                  name='AAAAAA')
+# МЕТОДЫ класса Frame() (некоторые):
 # frame.Center()  # метод для размещения окна в центре экрана;
 # frame.Close()  # закрывает окно;
 # frame.Maximize()  # распахивает окно на весь экран;
@@ -49,8 +62,11 @@ frame = wx.Frame(None, title='Helloy', pos=(100, 100),
 #   с начальной точкой pt, например:
 # frame.SetPosition(wx.Point(0, 0))
 # frame.SetSize(x, y, wight, height)  # положение и размер окна.
-frame.Show()
 
+# С помощью класса Show() отображаем окно frame
+frame1.Show()
+frame2.Show()
 
-# Метод реализует обработку всех событий
+# Метод MainLoop() реализует обработку всех событий.
+# Запускаем главный цикл обработки событий.
 app.MainLoop()
