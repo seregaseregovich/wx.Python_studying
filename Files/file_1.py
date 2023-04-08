@@ -1,7 +1,9 @@
 import wx
 
+# App - класс общего функционала приложения
 app = wx.App()
 
+# Frame - класс отдельного окна (их может быть несколько
 # Конструктор Frame():
 # wx.Frame(parent, id=-1, title='', pos=wx.DefaultPosition,
 #   size=wx.DefaultSize, style=wx.DEFAULT_FRAME_STYLE,
@@ -49,4 +51,6 @@ frame = wx.Frame(None, title='Helloy', pos=(100, 100),
 # frame.SetSize(x, y, wight, height)  # положение и размер окна.
 frame.Show()
 
+
+# Метод реализует обработку всех событий
 app.MainLoop()
