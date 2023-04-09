@@ -1,8 +1,7 @@
-import wx
-
 # =============================================================
 # ТИПОВАЯ ЗАГОТОВКА ДЛЯ СОЗДАНИЯ ТИПОВОГО ОКНА.
 # =============================================================
+import wx
 
 # App() - класс общего функционала приложения.
 # Создаем экземпляр app - производим инициализацию приложения
@@ -50,12 +49,12 @@ frame1 = wx.Frame(None, title='Frame 1', pos=(100, 100),
 
 frame2 = wx.Frame(frame1, title='Frame 2 (parent = frame 1)', pos=(120, 120),
                   size=(600, 500), style=wx.MINIMIZE_BOX |
-                                          wx.MAXIMIZE_BOX |
-                                          wx.RESIZE_BORDER |
-                                          wx.SYSTEM_MENU |
-                                          wx.CAPTION |
-                                          wx.CLOSE_BOX |
-                                          wx.CLIP_CHILDREN,
+                                         wx.MAXIMIZE_BOX |
+                                         wx.RESIZE_BORDER |
+                                         wx.SYSTEM_MENU |
+                                         wx.CAPTION |
+                                         wx.CLOSE_BOX |
+                                         wx.CLIP_CHILDREN,
                   name='AAAAAA')
 # МЕТОДЫ класса Frame() (некоторые):
 # frame.Center()  # метод для размещения окна в центре экрана;
