@@ -8,8 +8,8 @@ import wx
 # Создаем экземпляр app - производим инициализацию приложения
 app = wx.App()
 
-# Frame - класс отдельного окна (их может быть несколько
-# Конструктор Frame():
+# Frame - класс для создания стандартного окна (их может быть несколько
+# Конструктор Frame() - структура:
 # wx.Frame(parent, id=-1, title='', pos=wx.DefaultPosition,
 #   size=wx.DefaultSize, style=wx.DEFAULT_FRAME_STYLE,
 #   name='frame'),
