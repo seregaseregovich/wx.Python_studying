@@ -34,7 +34,7 @@ app = wx.App()
 # - wx.CLIP_CHILDREN - кнопка для
 
 # С помощью класса Frame() создаем окно (экз.класса - frame).
-frame1 = wx.Frame(None, title='Helloy', pos=(100, 100),
+frame1 = wx.Frame(None, title='Frame 1', pos=(100, 100),
                   size=(1200, 600), style=wx.MINIMIZE_BOX |
                                           wx.MAXIMIZE_BOX |
                                           wx.RESIZE_BORDER |
@@ -44,7 +44,7 @@ frame1 = wx.Frame(None, title='Helloy', pos=(100, 100),
                                           wx.CLIP_CHILDREN,
                   name='AAAAAA')
 
-frame2 = wx.Frame(frame1, title='Helloy', pos=(120, 120),
+frame2 = wx.Frame(frame1, title='Frame 2 (parent = frame 1)', pos=(120, 120),
                   size=(600, 500), style=wx.MINIMIZE_BOX |
                                           wx.MAXIMIZE_BOX |
                                           wx.RESIZE_BORDER |
