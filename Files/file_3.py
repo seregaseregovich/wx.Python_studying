@@ -10,8 +10,8 @@ class MyFrame(wx.Frame):
     def __init__(self, parent, title):
         super().__init__(parent, title=title)
 
-        menubar = wx.MenuBar()
-        filemenu = wx.Menu()
+        menubar = wx.MenuBar()  # Создание панели меню.
+        filemenu = wx.Menu()  # Создание вкладки меню
 
         expmenu = wx.Menu()
         expmenu.Append(wx.ID_ANY, 'Экспорт изображения')
@@ -28,13 +28,17 @@ class MyFrame(wx.Frame):
         #                    'Выход', 'Выход из приложения')
         # filemenu.Append(item)
         # можно записать одной строкой:
-        item = filemenu.Append(wx.ID_EXIT, 'Выход\tCtrl+Q', 'Выход из приложения')
+        item = filemenu.Append(wx.ID_EXIT, 'Выход\tCtrl+Q',
+                               'Выход из приложения')
 
         viewmenu = wx.Menu()
-        self.vstatus = viewmenu.Append(VIEW_STATUS, 'Статусная строка', kind=wx.ITEM_CHECK)
+        self.vstatus = viewmenu.Append(VIEW_STATUS, 'Статусная строка',
+                                       kind=wx.ITEM_CHECK)
         viewmenu.AppendSeparator()
-        self.vRGB = viewmenu.Append(RGB, 'Тип RGB', 'Тип RGB', kind=wx.ITEM_RADIO)
-        self.vsRGB = viewmenu.Append(SRGB, 'Тип sRGB', 'Тип sRGB', kind=wx.ITEM_RADIO)
+        self.vRGB = viewmenu.Append(RGB, 'Тип RGB',
+                                    'Тип RGB', kind=wx.ITEM_RADIO)
+        self.vsRGB = viewmenu.Append(SRGB, 'Тип sRGB',
+                                     'Тип sRGB', kind=wx.ITEM_RADIO)
 
         menubar.Append(filemenu, '&File')
         menubar.Append(viewmenu, '&Вид')
@@ -46,6 +50,7 @@ class MyFrame(wx.Frame):
         self.Bind(wx.EVT_MENU, self.onimagetype, id=SRGB)
 
     def onQuit(self, event):
+        print('Выход из программы.')
         self.Close()
 
     def onstatus(self, event):
@@ -67,3 +72,9 @@ frame = MyFrame(None, title='Main Window')
 frame.Show()
 
 app.MainLoop()
+
+
+# Для создания меню используется 3 класса:
+#       MenuBar - для создания панели меню;
+#       Menu - для создания вкладки меню (по аналогии - File);
+#       MenuItem - для создания отдельного пункта меню.
