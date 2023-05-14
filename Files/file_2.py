@@ -17,6 +17,9 @@ class MyFrame(wx.MDIParentFrame):
         win2 = wx.MDIChildFrame(self, -2, 'Child Window2', size=(100, 150))
         win2.Show()
 
+        win3 = wx.MDIChildFrame(self, -2, 'Child Window3', size=(100, 150))
+        win3.Show()
+
 
 app = wx.App()
 
