@@ -11,6 +11,7 @@ class MyFrame(wx.Frame):
         super().__init__(parent, title=title)
 
         menubar = wx.MenuBar()  # Создание панели меню.
+
         filemenu = wx.Menu()  # Создание вкладки меню
 
         expmenu = wx.Menu()
@@ -24,11 +25,24 @@ class MyFrame(wx.Frame):
         filemenu.AppendSubMenu(expmenu, '&Экспорт')
         filemenu.AppendSeparator()
 
+        filemenu2 = wx.Menu()  # Создание 2-й вкладки меню
+
+        expmenu = wx.Menu()
+        expmenu.Append(wx.ID_ANY, 'Экспорт изображения')
+        expmenu.Append(wx.ID_ANY, 'Экспорт видео')
+        expmenu.Append(wx.ID_ANY, 'Экспорт данных')
+
+        filemenu2.Append(wx.ID_NEW, '&Новый\tCTRL+N')
+        filemenu2.Append(wx.ID_NEW, '&Открыть\tCTRL+O')
+        filemenu2.Append(wx.ID_NEW, '&Сохранить\tCTRL+S')
+        filemenu2.AppendSubMenu(expmenu, '&Экспорт')
+        filemenu2.AppendSeparator()
+
         # item = wx.MenuItem(filemenu, wx.ID_EXIT,
         #                    'Выход', 'Выход из приложения')
         # filemenu.Append(item)
-        # можно записать одной строкой:
-        item = filemenu.Append(wx.ID_EXIT, 'Выход\tCtrl+Q',
+        # две строки выше можно заменить одной строкой ниже:
+        exititem = filemenu.Append(wx.ID_EXIT, 'Выход\tCtrl+Q',
                                'Выход из приложения')
 
         viewmenu = wx.Menu()
@@ -41,10 +55,11 @@ class MyFrame(wx.Frame):
                                      'Тип sRGB', kind=wx.ITEM_RADIO)
 
         menubar.Append(filemenu, '&File')
+        menubar.Append(filemenu2, '&File2')
         menubar.Append(viewmenu, '&Вид')
 
         self.SetMenuBar(menubar)
-        self.Bind(wx.EVT_MENU, self.onQuit, item)
+        self.Bind(wx.EVT_MENU, self.onQuit, exititem)
         self.Bind(wx.EVT_MENU, self.onstatus, id=VIEW_STATUS)
         self.Bind(wx.EVT_MENU, self.onimagetype, id=RGB)
         self.Bind(wx.EVT_MENU, self.onimagetype, id=SRGB)
@@ -77,7 +92,9 @@ app.MainLoop()
 # Для создания меню используется 3 класса:
 # 1.    MenuBar - для создания панели меню, по умолчанию имеет вид:
 #           menubar = wx.MenuBar()
+#           .........................
 #           self.SetMenuBar(menubar)
 #       Между этими строками выше строят всю конструкцию будущего меню.
 # 2.    Menu - для создания вкладки меню (по аналогии - File);
 # 3.    MenuItem - для создания отдельного пункта меню.
+# 4. .
